@@ -47,5 +47,5 @@ dependencies = [
 ]
 
 [project.urls]
-"Source Code" = "https://github.com/your-username/eeg-reliability-gated-tta"
-"Issue Tracker" = "https://github.com/your-username/eeg-reliability-gated-tta/issues"
+"Source Code" = "https://github.com/Vashisht-Singh/eeg-reliability-gated-tta"
+"Issue Tracker" = "https://github.com/Vashisht-Singh/eeg-reliability-gated-tta/issues"
