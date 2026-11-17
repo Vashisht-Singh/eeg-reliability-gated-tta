@@ -1,0 +1,9 @@
+{
+  "total_evaluated_updates": 300,
+  "beneficial_accepted": 48,
+  "harmful_accepted": 5,
+  "harmful_correctly_rejected": 246,
+  "beneficial_falsely_rejected": 1,
+  "harmful_rejection_accuracy": 98.00796812749005,
+  "gate_precision": 90.56603773584906
+}

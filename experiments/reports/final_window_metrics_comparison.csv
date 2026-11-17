@@ -1,0 +1,6 @@
+Method,accuracy,balanced_accuracy,f1_score,mcc,cohen_kappa,sensitivity,specificity,precision,auroc,auprc
+E0_Frozen,0.4767,0.4767,0.0,0.0,0.0,0.0,0.4767,0.0,0.5,0.0
+E1_TENT,0.5,0.5,0.0,0.0,0.0,0.0,0.5,0.0,0.5,0.0
+E2_EATA,0.48,0.48,0.0,0.0,0.0,0.0,0.48,0.0,0.5,0.0
+E3_SAR,0.53,0.53,0.0,0.0,0.0,0.0,0.53,0.0,0.5,0.0
+E8_Proposed,0.18,0.18,0.0,0.0,0.0,0.0,0.18,0.0,0.5,0.0
