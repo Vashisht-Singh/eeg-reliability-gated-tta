@@ -87,3 +87,41 @@ The core research hypothesis examines unsupervised, label-free test-time adaptat
 - The adaptation controller produces chronological predictions and update logs.
 - Siena labels are unlocked strictly during Phase 7 post-adaptation offline evaluation.
 - Automated tests (`tests/test_label_isolation.py`) will explicitly verify that the adaptation module cannot import or access target labels.
+
+
+---
+
+## Decision 7: Chunk-Based Incremental EDF Loading Architecture
+
+### Context:
+Standard deep learning pipelines often convert entire EEG datasets into tens of gigabytes of uncompressed `.npy` or `.h5` files, requiring 64+ GB of RAM. The local machine has ~4 GB available RAM.
+
+### Decision:
+Implemented `IncrementalEDFLoader` using standard-library binary seeking:
+- Calculates exact physical gain $k_i = \frac{\text{phys\_max}_i - \text{phys\_min}_i}{\text{dig\_max}_i - \text{dig\_min}_i}$ and bias $b_i = \text{phys\_min}_i - k_i \cdot \text{dig\_min}_i$.
+- Window indexing reads only the exact byte range corresponding to the target 4-second chunk from disk.
+- Maximum RAM consumption per window is $< 20\text{ MB}$, completely eliminating out-of-memory risks.
+
+---
+
+## Decision 8: Adaptive Class-Balanced Window Generation
+
+### Context:
+In long continuous EEG recordings, clinical seizures occupy $< 1.5\%$ of the total time. A uniform non-overlapping windowing strategy yields severe imbalance ($> 1:100$).
+
+### Decision:
+- **Seizure Intervals:** 1.0-second sliding stride ($75\%$ temporal overlap), oversampling transient seizure morphology.
+- **Background Intervals:** 4.0-second non-overlapping stride.
+- **Overlap Criterion:** A window is labeled positive if and only if $\ge 50\%$ of its duration falls within an annotated clinical seizure.
+- **Target Domain (Siena):** Continuous 1.0-second chronological hop with zero labels attached during adaptation.
+
+---
+
+## Decision 9: Causal Second-Order Sections (SOS) Filtering
+
+### Context:
+Bidirectional filtering (`filtfilt`) violates causality by running backwards through time. Furthermore, high-order polynomial filters (`ba` coefficients) suffer from numerical instability in single precision.
+
+### Decision:
+- Implemented forward-only Second-Order Sections (`sosfilt`) Butterworth 4th-order filter ($0.5 - 45.0\text{ Hz}$).
+- Mathematical test verified: impulse response $h[n] = 0.0$ for $n < n_0$, proving zero future information leakage into past or present windows.
