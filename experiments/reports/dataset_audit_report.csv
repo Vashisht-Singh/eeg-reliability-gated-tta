@@ -1,0 +1,13 @@
+Metric,CHB-MIT (Source),Siena (Target)
+Dataset Name,CHB-MIT Scalp EEG,Siena Scalp EEG
+Root Path,F:\chb-mit-scalp-eeg-database-1.0.0,D:\Sandhu_Siena_EEG
+Number of Subjects,24,14
+Total EDF Recordings,686,41
+Usable EDF Recordings,686,41
+Corrupted Recordings,0,0
+Recordings with Seizures,141,40
+Total Seizure Events,198,73
+Total Duration (Hours),982.94,141.02
+Sampling Frequency (Hz),256.0 Hz (100% files),512.0 Hz (100% files)
+Native Montage Type,Bipolar (Double Banana),Referential / Monopolar
+Standard 18-Ch Double Banana Compatibility,99.56% direct (100% with CS2 derivation),100.0% via referential difference

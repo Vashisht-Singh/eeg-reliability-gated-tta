@@ -1,0 +1,19 @@
+channel_name,chain,chbmit_count,chbmit_coverage_pct,siena_count,siena_coverage_pct,chbmit_source_mode,siena_target_mode,harmonization_status
+FP1-F7,Left Temporal Chain,683,99.56,41,100.0,Direct Bipolar: FP1-F7,Referential Difference: (FP1) - (F7),COMPATIBLE
+F7-T7,Left Temporal Chain,683,99.56,41,100.0,Direct Bipolar: F7-T7,Referential Difference: (F7) - (T7/T3),COMPATIBLE
+T7-P7,Left Temporal Chain,683,99.56,41,100.0,Direct Bipolar: T7-P7,Referential Difference: (T7/T3) - (P7/T5),COMPATIBLE
+P7-O1,Left Temporal Chain,683,99.56,41,100.0,Direct Bipolar: P7-O1,Referential Difference: (P7/T5) - (O1/01),COMPATIBLE
+FP1-F3,Left Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: FP1-F3,Referential Difference: (FP1) - (F3),COMPATIBLE
+F3-C3,Left Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: F3-C3,Referential Difference: (F3) - (C3),COMPATIBLE
+C3-P3,Left Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: C3-P3,Referential Difference: (C3) - (P3),COMPATIBLE
+P3-O1,Left Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: P3-O1,Referential Difference: (P3) - (O1/01),COMPATIBLE
+FP2-F4,Right Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: FP2-F4,Referential Difference: (FP2) - (F4),COMPATIBLE
+F4-C4,Right Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: F4-C4,Referential Difference: (F4) - (C4),COMPATIBLE
+C4-P4,Right Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: C4-P4,Referential Difference: (C4) - (P4),COMPATIBLE
+P4-O2,Right Parasagittal Chain,683,99.56,41,100.0,Direct Bipolar: P4-O2,Referential Difference: (P4) - (O2/02),COMPATIBLE
+FP2-F8,Right Temporal Chain,683,99.56,41,100.0,Direct Bipolar: FP2-F8,Referential Difference: (FP2) - (F8),COMPATIBLE
+F8-T8,Right Temporal Chain,683,99.56,41,100.0,Direct Bipolar: F8-T8,Referential Difference: (F8) - (T8/T4),COMPATIBLE
+T8-P8,Right Temporal Chain,683,99.56,41,100.0,Direct Bipolar: T8-P8,Referential Difference: (T8/T4) - (P8/T6),COMPATIBLE
+P8-O2,Right Temporal Chain,683,99.56,41,100.0,Direct Bipolar: P8-O2,Referential Difference: (P8/T6) - (O2/02),COMPATIBLE
+FZ-CZ,Midline Central Chain,683,99.56,41,100.0,Direct Bipolar: FZ-CZ,Referential Difference: (FZ) - (CZ),COMPATIBLE
+CZ-PZ,Midline Central Chain,683,99.56,41,100.0,Direct Bipolar: CZ-PZ,Referential Difference: (CZ) - (PZ),COMPATIBLE

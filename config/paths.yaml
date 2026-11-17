@@ -1,0 +1,22 @@
+# Project paths configuration
+paths:
+  project_root: "D:/EEG_Research"
+  source_dataset_raw: "F:/chb-mit-scalp-eeg-database-1.0.0"
+  target_dataset_raw: "D:/Sandhu_Siena_EEG"
+  data:
+    manifests: "D:/EEG_Research/data/manifests"
+    metadata: "D:/EEG_Research/data/metadata"
+    processed: "D:/EEG_Research/data/processed"
+    window_indices: "D:/EEG_Research/data/window_indices"
+    evaluation_annotations: "D:/EEG_Research/data/evaluation_annotations"
+  experiments:
+    logs: "D:/EEG_Research/experiments/logs"
+    metrics: "D:/EEG_Research/experiments/metrics"
+    predictions: "D:/EEG_Research/experiments/predictions"
+    update_logs: "D:/EEG_Research/experiments/update_logs"
+    checkpoints: "D:/EEG_Research/experiments/checkpoints"
+    reports: "D:/EEG_Research/experiments/reports"
+  models:
+    source: "D:/EEG_Research/models/source"
+    adapted: "D:/EEG_Research/models/adapted"
+    best: "D:/EEG_Research/models/best"

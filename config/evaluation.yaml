@@ -1,0 +1,36 @@
+# Evaluation & Metric Configuration
+evaluation:
+  # Window-Level Metrics
+  window_metrics:
+    - "accuracy"
+    - "balanced_accuracy"
+    - "sensitivity"      # Recall for seizure class
+    - "specificity"      # True negative rate
+    - "precision"        # Positive predictive value
+    - "f1_score"
+    - "auroc"            # Area under ROC
+    - "auprc"            # Area under Precision-Recall curve
+    - "cohen_kappa"
+    - "mcc"              # Matthews Correlation Coefficient
+
+  # Seizure-Event-Level Metrics (Clinical standard)
+  event_metrics:
+    alarm_threshold: 0.5            # Sigmoid probability threshold
+    min_event_duration_sec: 4.0     # Minimum consecutive seconds to declare an alarm
+    alarm_merge_tolerance_sec: 10.0 # Merge alarms separated by less than tolerance
+    overlap_criterion_pct: 20.0     # Event matched if alarm overlaps >= 20% with true seizure
+    false_alarm_metric: "fa_per_hour" # False alarms per 1 hour of recording
+
+  # Calibration Metrics
+  calibration_metrics:
+    - "expected_calibration_error"  # ECE (10 or 15 bins)
+    - "brier_score"
+    - "negative_log_likelihood"
+    - "reliability_diagram"
+
+  # Counterfactual Update Harm Analysis (Offline)
+  counterfactual:
+    future_evaluation_horizon_sec: 300.0  # Evaluate subsequent 5 minutes of stream
+    harm_criteria:
+      f1_degradation_threshold: 0.05
+      false_alarm_increase_threshold: 1.0  # Additional FA per hour

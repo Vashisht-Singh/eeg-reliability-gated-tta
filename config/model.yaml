@@ -1,0 +1,40 @@
+# Deep Learning Model Architecture Configuration
+model:
+  name: "EEG1DCNN"  # Primary baseline: Modular 1D CNN for multi-channel raw EEG
+  num_channels: 18  # 18 channels (Double Banana montage)
+  input_samples: 1024  # 4 seconds @ 256 Hz
+
+  cnn:
+    conv_blocks:
+      - filters: 32
+        kernel_size: 15
+        stride: 1
+        pool_size: 2
+        dropout: 0.2
+      - filters: 64
+        kernel_size: 11
+        stride: 1
+        pool_size: 2
+        dropout: 0.3
+      - filters: 128
+        kernel_size: 7
+        stride: 1
+        pool_size: 2
+        dropout: 0.3
+      - filters: 256
+        kernel_size: 5
+        stride: 1
+        pool_size: 4
+        dropout: 0.4
+    normalization: "batchnorm"  # Layer adapted during TTA
+    activation: "gelu"
+    global_pooling: "adaptive_avg_pool1d"
+    fc_hidden_dim: 128
+    num_classes: 2  # Binary: 0 = non-seizure, 1 = seizure
+
+  # Comparative Model: Lightweight Temporal Convolutional Network (TCN)
+  tcn:
+    num_channels_list: [32, 64, 128, 256]
+    kernel_size: 7
+    dropout: 0.3
+    causal: true

@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eeg-reliability-gated-tta"
+version = "0.1.0"
+description = "Cross-Dataset EEG Seizure Detection Framework with Chronological Test-Time Adaptation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "M.Tech CSE Research Group", email = "research@eeg-tta.org" }
+]
+keywords = [
+    "eeg",
+    "seizure-detection",
+    "test-time-adaptation",
+    "domain-generalization",
+    "deep-learning",
+    "chb-mit",
+    "siena-eeg"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "numpy>=1.22.0",
+    "scipy>=1.8.0",
+    "pandas>=1.4.0",
+    "scikit-learn>=1.0.0",
+    "torch>=1.12.0",
+    "mne>=1.0.0",
+    "pyyaml>=6.0",
+    "psutil>=5.9.0",
+    "tqdm>=4.64.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0"
+]
+
+[project.urls]
+"Source Code" = "https://github.com/your-username/eeg-reliability-gated-tta"
+"Issue Tracker" = "https://github.com/your-username/eeg-reliability-gated-tta/issues"

@@ -1,0 +1,63 @@
+# Source Model Training Configuration (CHB-MIT)
+training:
+  seed: 42
+  device: "cuda"  # Auto-fallback to "cpu" if CUDA unavailable or OOM
+
+  # Optimization
+  optimizer:
+    name: "AdamW"
+    lr: 1.0e-3
+    weight_decay: 1.0e-2
+    betas: [0.9, 0.999]
+
+  scheduler:
+    name: "CosineAnnealingLR"
+    t_max: 30
+    eta_min: 1.0e-6
+
+  epochs: 30
+  batch_size: 64
+  num_workers: 0  # Conservative for Windows multiprocessing stability
+
+  # Class Imbalance Handling
+  imbalance_strategy: "class_weighted_loss"  # Pos weight calculated from training set
+  loss_function: "BCEWithLogitsLoss"  # Or "FocalLoss"
+
+  # Validation & Early Stopping (Source Domain Only)
+  early_stopping:
+    enabled: true
+    monitor: "val_auprc"
+    mode: "max"
+    patience: 7
+    min_delta: 0.001
+
+  # Patient-Independent Splitting
+  # CRITICAL: chb01 and chb21 are the same patient; must remain in the same split!
+  patient_splits:
+    train_patients:
+      - "chb01"
+      - "chb02"
+      - "chb03"
+      - "chb05"
+      - "chb06"
+      - "chb07"
+      - "chb08"
+      - "chb09"
+      - "chb10"
+      - "chb11"
+      - "chb14"
+      - "chb15"
+      - "chb18"
+      - "chb19"
+      - "chb20"
+      - "chb21"  # Bound to chb01
+      - "chb22"
+    val_patients:
+      - "chb04"
+      - "chb16"
+      - "chb23"
+    test_source_patients:
+      - "chb12"
+      - "chb13"
+      - "chb17"
+      - "chb24"

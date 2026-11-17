@@ -1,0 +1,330 @@
+{
+  "hardware_and_environment": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python_version": "3.10.4",
+    "python_executable": "C:\\phython 3.10\\python.exe",
+    "cpu_count_logical": 8,
+    "cpu_count_physical": 4,
+    "ram_total_gb": 13.88,
+    "ram_avail_gb": 4.44,
+    "disk_c_total_gb": 237.39,
+    "disk_c_free_gb": 146.42,
+    "disk_d_total_gb": 150.26,
+    "disk_d_free_gb": 73.52,
+    "disk_f_total_gb": 195.31,
+    "disk_f_free_gb": 0.0,
+    "gpu_name": "NVIDIA GeForce GTX 1650",
+    "gpu_vram_mb": 4096.0,
+    "gpu_driver": "581.83",
+    "cuda_version": "13.0 (Driver supported)"
+  },
+  "source_dataset": {
+    "dataset_name": "CHB-MIT",
+    "dataset_path": "F:\\chb-mit-scalp-eeg-database-1.0.0",
+    "num_subjects": 24,
+    "subject_list": [
+      "chb01",
+      "chb02",
+      "chb03",
+      "chb04",
+      "chb05",
+      "chb06",
+      "chb07",
+      "chb08",
+      "chb09",
+      "chb10",
+      "chb11",
+      "chb12",
+      "chb13",
+      "chb14",
+      "chb15",
+      "chb16",
+      "chb17",
+      "chb18",
+      "chb19",
+      "chb20",
+      "chb21",
+      "chb22",
+      "chb23",
+      "chb24"
+    ],
+    "total_recordings": 686,
+    "usable_recordings": 686,
+    "corrupted_recordings": 0,
+    "recordings_with_seizures": 141,
+    "total_seizure_events": 198,
+    "total_duration_hours": 982.9352777777777,
+    "sampling_frequencies": {
+      "256.0": 686
+    },
+    "unique_channels_count": 87,
+    "top_channels": [
+      [
+        "-",
+        1471
+      ],
+      [
+        "T8-P8",
+        1338
+      ],
+      [
+        "FP1-F7",
+        683
+      ],
+      [
+        "F7-T7",
+        683
+      ],
+      [
+        "T7-P7",
+        683
+      ],
+      [
+        "P7-O1",
+        683
+      ],
+      [
+        "FP1-F3",
+        683
+      ],
+      [
+        "F3-C3",
+        683
+      ],
+      [
+        "C3-P3",
+        683
+      ],
+      [
+        "P3-O1",
+        683
+      ],
+      [
+        "FP2-F4",
+        683
+      ],
+      [
+        "F4-C4",
+        683
+      ],
+      [
+        "C4-P4",
+        683
+      ],
+      [
+        "P4-O2",
+        683
+      ],
+      [
+        "FP2-F8",
+        683
+      ],
+      [
+        "F8-T8",
+        683
+      ],
+      [
+        "P8-O2",
+        683
+      ],
+      [
+        "FZ-CZ",
+        683
+      ],
+      [
+        "CZ-PZ",
+        683
+      ],
+      [
+        "P7-T7",
+        655
+      ],
+      [
+        "T7-FT9",
+        655
+      ],
+      [
+        "FT9-FT10",
+        655
+      ],
+      [
+        "FT10-T8",
+        655
+      ],
+      [
+        ".",
+        320
+      ],
+      [
+        "FC1-Ref",
+        40
+      ]
+    ]
+  },
+  "target_dataset": {
+    "dataset_name": "Siena Scalp EEG",
+    "dataset_path": "D:\\Sandhu_Siena_EEG",
+    "num_subjects": 14,
+    "subject_list": [
+      "PN00",
+      "PN01",
+      "PN03",
+      "PN05",
+      "PN06",
+      "PN07",
+      "PN09",
+      "PN10",
+      "PN11",
+      "PN12",
+      "PN13",
+      "PN14",
+      "PN16",
+      "PN17"
+    ],
+    "total_recordings": 41,
+    "usable_recordings": 41,
+    "corrupted_recordings": 0,
+    "recordings_with_seizures": 40,
+    "total_seizure_events": 73,
+    "total_duration_hours": 141.02055555555555,
+    "sampling_frequencies": {
+      "512.0": 41
+    },
+    "unique_channels_count": 52,
+    "top_channels": [
+      [
+        "EEG Fp1",
+        41
+      ],
+      [
+        "EEG F3",
+        41
+      ],
+      [
+        "EEG C3",
+        41
+      ],
+      [
+        "EEG P3",
+        41
+      ],
+      [
+        "EEG O1",
+        41
+      ],
+      [
+        "EEG F7",
+        41
+      ],
+      [
+        "EEG T3",
+        41
+      ],
+      [
+        "EEG T5",
+        41
+      ],
+      [
+        "EEG Fc1",
+        41
+      ],
+      [
+        "EEG Fc5",
+        41
+      ],
+      [
+        "EEG Cp1",
+        41
+      ],
+      [
+        "EEG Cp5",
+        41
+      ],
+      [
+        "EEG F9",
+        41
+      ],
+      [
+        "EEG Fz",
+        41
+      ],
+      [
+        "EEG Pz",
+        41
+      ],
+      [
+        "EEG F4",
+        41
+      ],
+      [
+        "EEG C4",
+        41
+      ],
+      [
+        "EEG P4",
+        41
+      ],
+      [
+        "EEG O2",
+        41
+      ],
+      [
+        "EEG F8",
+        41
+      ],
+      [
+        "EEG T4",
+        41
+      ],
+      [
+        "EEG T6",
+        41
+      ],
+      [
+        "EEG Fc2",
+        41
+      ],
+      [
+        "EEG Fc6",
+        41
+      ],
+      [
+        "EEG Cp2",
+        41
+      ]
+    ]
+  },
+  "channel_harmonization": {
+    "target_montage": "18-channel Longitudinal Bipolar (Double Banana)",
+    "target_channels_count": 18,
+    "double_banana_channels": [
+      "FP1-F7",
+      "F7-T7",
+      "T7-P7",
+      "P7-O1",
+      "FP1-F3",
+      "F3-C3",
+      "C3-P3",
+      "P3-O1",
+      "FP2-F4",
+      "F4-C4",
+      "C4-P4",
+      "P4-O2",
+      "FP2-F8",
+      "F8-T8",
+      "T8-P8",
+      "P8-O2",
+      "FZ-CZ",
+      "CZ-PZ"
+    ],
+    "chbmit_compatibility_pct": 99.56,
+    "siena_compatibility_pct": 100.0
+  },
+  "data_protection_status": {
+    "source_dataset_read_only": true,
+    "target_dataset_read_only": true,
+    "modifications_to_source": 0,
+    "modifications_to_target": 0,
+    "isolated_research_root": "D:/EEG_Research"
+  }
+}

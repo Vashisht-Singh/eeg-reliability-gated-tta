@@ -1,0 +1,56 @@
+# EEG Signal Preprocessing Configuration
+preprocessing:
+  # Sampling Rate Harmonization
+  target_sampling_rate: 256.0  # Hz (CHB-MIT is 256 Hz; Siena is downsampled 2x from 512 Hz)
+  resample_method: "polyphase"  # Anti-aliasing FIR decimation / polyphase
+
+  # Frequency Filtering
+  filter:
+    enabled: true
+    causal: true  # CRITICAL: causal filtering prevents future temporal leakage during streaming TTA
+    low_cutoff_hz: 0.5
+    high_cutoff_hz: 45.0
+    notch_filter:
+      enabled: true
+      chbmit_freq_hz: 60.0  # US powerline frequency
+      siena_freq_hz: 50.0   # European powerline frequency
+
+  # Channel Montage Harmonization
+  montage:
+    type: "longitudinal_bipolar"
+    name: "double_banana_18ch"
+    channels:
+      - "FP1-F7"
+      - "F7-T7"
+      - "T7-P7"
+      - "P7-O1"
+      - "FP1-F3"
+      - "F3-C3"
+      - "C3-P3"
+      - "P3-O1"
+      - "FP2-F4"
+      - "F4-C4"
+      - "C4-P4"
+      - "P4-O2"
+      - "FP2-F8"
+      - "F8-T8"
+      - "T8-P8"
+      - "P8-O2"
+      - "FZ-CZ"
+      - "CZ-PZ"
+
+  # Window Generation
+  window:
+    duration_sec: 4.0   # Window duration in seconds (1024 samples @ 256 Hz)
+    source_training:
+      seizure_stride_sec: 1.0     # 75% overlap for rare seizure class
+      non_seizure_stride_sec: 4.0 # Non-overlapping for majority background class
+    target_stream:
+      stride_sec: 1.0             # Continuous 1.0s hop for chronological online TTA
+      chronological: true         # Strict time order preserved
+
+  # Normalization
+  normalization:
+    method: "robust_zscore"  # (x - median) / IQR or (x - mean) / std per channel
+    clip_outliers: true
+    clip_value: 10.0

@@ -1,0 +1,66 @@
+# Test-Time Adaptation (TTA) Configuration
+adaptation:
+  # Target Dataset Stream Settings
+  target_dataset: "Siena Scalp EEG"
+  chronological: true
+  batch_size: 1  # Online sample-by-sample or micro-batch
+  micro_batch_size: 4
+
+  # Adaptable Parameters
+  adaptable_parameters: "norm_layers_only"  # Adapt affine parameters (weight/bias) of BatchNorm only
+
+  # Baselines
+  methods:
+    frozen:
+      name: "Frozen Source Model"
+      updates_enabled: false
+
+    tent:
+      name: "TENT (Entropy Minimization)"
+      lr: 1.0e-4
+      optimizer: "Adam"
+      objective: "entropy_minimization"
+
+    eata:
+      name: "EATA (Active Test-Time Adaptation)"
+      lr: 1.0e-4
+      entropy_threshold_e0: 0.4  # Shannon entropy threshold for sample selection
+      fisher_regularization: true
+      fisher_weight: 2000.0
+      redundancy_filter: true
+      diversity_threshold: 0.05
+
+    sar:
+      name: "SAR (Sharpness-Aware and Reliable TTA)"
+      lr: 1.0e-4
+      margin_e0: 0.4
+      rho: 0.05
+      ema_factor: 0.9
+
+    proposed:
+      name: "Seizure-Aware Reliability-Gated TTA"
+      lr: 1.0e-4
+      candidate_generator: "tent"  # Or EATA/SAR loss
+      # Gating Signals
+      gating:
+        uncertainty_gate:
+          enabled: true
+          entropy_upper_bound: 0.5  # Filter excessively noisy predictions
+          entropy_lower_bound: 0.05 # Filter over-confident redundant predictions
+        signal_quality_gate:
+          enabled: true
+          amplitude_clip_threshold: 500.0  # uV artifact threshold
+          line_noise_snr_threshold: 15.0   # dB
+        temporal_consistency_gate:
+          enabled: true
+          max_state_divergence: 0.35
+        candidate_safety_gate:
+          enabled: true
+          max_parameter_delta_l2: 0.15
+          class_collapse_protection: true  # Prevent model from predicting 100% background
+      # Rollback & Recovery
+      recovery:
+        enabled: true
+        stability_window_steps: 50
+        max_consecutive_divergent_updates: 10
+        rollback_to: "last_stable_checkpoint"  # Or "source_checkpoint"
